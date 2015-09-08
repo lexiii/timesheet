@@ -1,0 +1,79 @@
+/* THIS FILE CONTAINS REALLY BASIC FIXES TO MAKE THE TIMESHEET READABLE. I RECOMMEND YOU CHANGE THIS TO BOOTSTRAP OR SOMETHING SIMULAR */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.relativeTime{
+    position:relative;
+    bottom:20px;
+    color:grey;
+    font-style:italic; 
+    font-size:80%;
+}
+
+.panic{
+    color:red;
+    font-weight:bold;
+}
+
+.date{
+    color:grey;
+    font-size:90%;
+}
+.time{
+    font-weight:bold;
+    position:relative;
+    bottom:10px;
+}
+
+/* TABLE STUFF */
+.one-row td{
+    text-align: center;
+//    padding-right:100px;
+    width:130px;
+}
+.datagrid table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+.datagrid {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow: hidden;
+}
+.datagrid table td,
+.datagrid table th {
+    padding: 5px 4px;
+}
+.datagrid table thead th {
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFFFFF), color-stop(1, #FFFFFF));
+    background: -moz-linear-gradient( center top, #FFFFFF 5%, #FFFFFF 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FFFFFF');
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 15px;
+    font-weight: normal;
+}
+.datagrid table thead th:first-child {
+    border: none;
+}
+.datagrid table tbody td {
+    color: #00496B;
+    border-left: 1px solid #E1EEF4;
+    font-size: 12px;
+    font-weight: normal;
+}
+.datagrid table tbody .alt td {
+    background: #E1EEF4;
+    color: #00496B;
+}
+.datagrid table tbody td:first-child {
+    border-left: none;
+}
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+}
+.datagrid td{
+    text-align:center;
+}

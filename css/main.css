@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Playball);
+
+body{
+    background-color:#E6E6E6;
+}
+.strt{
+    text-align:center;
+  position: relative;
+
+}
+.strt .inner{
+    background:#5bc0de;
+    padding:20px;
+    min-height:120px;
+    border-radius:10px;
+}
+.vAlign {
+    font-weight:bold;
+    font-size:120%;
+    padding-top:30px;//FIX THIS
+}
+.from-title{
+font-family: 'Playball', cursive;
+    font-size:190%;
+    color:grey;
+}
+.pDate{
+    font-style:italic;
+}
+.pTime{
+    font-weight:bold;
+    font-size:150%;
+}
+.stillClocked{
+    font-weight:bold;
+    padding-top:25px;/*do this properly*/
+    font-size:150%;
+}
