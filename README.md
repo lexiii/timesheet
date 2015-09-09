@@ -1,2 +1,2 @@
 # timesheet
-timesheet thing
+timesheet is a simple timesheet managing system for multiple users.
