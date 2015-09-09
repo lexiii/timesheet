@@ -1,4 +1,16 @@
 <?php
+// CHECK TO SEE IF DB EXISTS. IF NOT, LINK TO INSTALL.PHP
+include('inc/db.php');
+$link = mysql_connect("$host", "$username", "$password");
+if (!$link) {
+  die('Not connected : ' . mysql_error());
+}
+$db_selected = mysql_select_db("$db_name", $link);
+if (!$db_selected) {
+    die("Timesheet has not been installed. Click <a href='install.php'>here</a> to install it.");
+}
+// END CHECK
+
 session_start();
 // If logged in, go to landing
 if(isset($_SESSION['username'])){
@@ -16,7 +28,7 @@ include("header.php");
 <span class='w1'>Time</span><span class='w2'>Sheet</span>
 </div>
 <div class='version'>
-V0.01
+V0.02a
 </div>
         <div class="card card-container">
             <p id="profile-name" class="profile-name-card"></p>
