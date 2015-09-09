@@ -110,7 +110,7 @@ echo '</div>';
                 <h4>Database </h4>
                 <div class="form-group col-lg-12">
                     <label>Host</label>
-                    <input type="text" name="DBh" class="form-control" id="" value="">
+                    <input type="text" name="DBh" class="form-control" id="" value="localhost">
                 </div>
 
                 <div class="form-group col-lg-12">
@@ -124,7 +124,7 @@ echo '</div>';
                 </div>
 
                 <div class="form-group col-lg-12">
-                    <label>Database:</label>
+                    <label>table:</label>
                     <input type="text" name="DBdb" class="form-control" id="" value="">
                 </div>
 
@@ -247,8 +247,8 @@ role  INT(11)
     } else {
         echo "Error creating table: " . mysqli_error($conn);
     }
-    $pass = sha1($seed.$passd);
-    $sql = "INSERT INTO users (userName,password, role) VALUES ('admin','".$pass."','0')";
+    $pass = sha1($seed.$p1);
+    $sql = "INSERT INTO users (userName,password,email, role) VALUES ('".$username."','".$pass."','".$email."', '0')";
 
     if (mysqli_query($conn, $sql)) {
         //    echo "Admin user Created ";

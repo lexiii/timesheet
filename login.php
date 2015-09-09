@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
 // Details of connection
 include("inc/db.php");
@@ -23,7 +24,6 @@ $password = sha1($seed.$mypassword);
 $sql="SELECT * FROM $tbl_name WHERE userName='$myusername' and password='$password'";
 $result=mysql_query($sql);
 if(mysql_num_rows($result)==1){
-    session_start();
     while($row = mysql_fetch_assoc($result)) {
         $_SESSION['userId']=$row["id"];
     }

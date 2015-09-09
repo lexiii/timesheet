@@ -1,4 +1,5 @@
 <?php
+session_start();
 // CHECK TO SEE IF DB EXISTS. IF NOT, LINK TO INSTALL.PHP
 include('inc/db.php');
 $link = mysql_connect("$host", "$username", "$password");
@@ -10,8 +11,6 @@ if (!$db_selected) {
     die("Timesheet has not been installed. Click <a href='install.php'>here</a> to install it.");
 }
 // END CHECK
-
-session_start();
 // If logged in, go to landing
 if(isset($_SESSION['username'])){
     header("location:landing.php");

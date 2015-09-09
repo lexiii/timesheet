@@ -72,8 +72,12 @@ To. . .
     echo $clockedIn;
     echo "<a href='clock.php' class='btn btn-danger btn-lg'>Clock ".($inSession?"Out":"In")."</a>";
 } else {
+    echo '<div class="panel-body">';
+    echo "<div class='text-center'>";
     echo "No records for ".$_SESSION['username'];
     echo "</br><a href='clock.php' class='btn btn-danger btn-lg'>Clock In</a>";
+    echo "</div>";
+    echo "</div>";
 }
 ?>
   </div>
