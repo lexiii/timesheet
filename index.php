@@ -4,11 +4,13 @@ session_start();
 include('inc/db.php');
 $link = mysql_connect("$host", "$username", "$password");
 if (!$link) {
-  die('Not connected : ' . mysql_error());
+    die('Not connected : ' . mysql_error());
 }
 $db_selected = mysql_select_db("$db_name", $link);
 if (!$db_selected) {
-    die("Timesheet has not been installed. Click <a href='install.php'>here</a> to install it.");
+    include('install.php');
+    die();
+//    die("Timesheet has not been installed. Click <a href='install.php'>here</a> to install it.");
 }
 // END CHECK
 // If logged in, go to landing

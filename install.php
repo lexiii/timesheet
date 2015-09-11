@@ -10,9 +10,11 @@ TIMESHEET INSTALLER
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/signup.css">
 <body>
 
 <?php
+$debug = 0;
 include ('inc/db.php');
 if(isset($host)){
     if(!isset($_GET['manual'])){
@@ -22,9 +24,9 @@ if(isset($host)){
 }
 $config = 'inc/db.php';
 $err = -1;
-if(isset($_POST['username'])){
+if(isset($_POST['Username'])){
     $err=0;
-    $name = $_POST['username'];
+    $name = $_POST['Username'];
     $email = $_POST['email'];
     $p1 = $_POST['pass1'];
     if(!isset($host)){
@@ -71,18 +73,21 @@ if(isset($_POST['username'])){
 if($err!=0){
 ?>
 <div class="container-fluid">
-    <section class="container">
+    <section class="container card title-card">
+<span class='w1'>Time</span><span class='w2'>Sheet</span>
+</section>
+    <section class="container card ">
         <div class="container-page">
 <form action="" method="post">
             <div class="col-md-6">
-                <h3 class="dark-grey">TIMESHEET SETUP</h3>
 <?php
     if($err > 0){
-        echo '<div class="alert alert-danger" role="alert">There are errors in your form:<br/>';
+        echo '<div class="alert alert-danger" role="alert"><strong>There are errors in your form:</strong><br/>';
 
         foreach($msg as $er){
             echo $er."<br/>";
         }
+        if($debug)
         var_dump($_POST);
 echo '</div>';
     }
@@ -90,7 +95,7 @@ echo '</div>';
                 <h4 class="dark-grey">Admin User</h3>
                 <div class="form-group col-lg-12">
                     <label>Username</label>
-                    <input type="text" name="username" class="form-control" id="" value="">
+                    <input type="text" name="Username" class="form-control" id="" value="">
                 </div>
 
                 <div class="form-group col-lg-12">
@@ -143,6 +148,10 @@ Put some intro text here. maybe a picture?
             </div>
         </div>
     </section>
+
+    <section class="container card ">
+<p>Created by Lexi Cross</p>
+</section>
 </div>
 <?php
 }else{
@@ -169,7 +178,7 @@ Put some intro text here. maybe a picture?
 ?&gt;
 </pre>
 <form action="install.php?manual" method="post">
-<input type='hidden' name='username' value="<?php echo $name; ?>"/>
+<input type='hidden' name='Username' value="<?php echo $name; ?>"/>
 <input type='hidden' name='email' value="<?php echo $email; ?>"/>
 <input type='hidden' name='pass1' value="<?php echo $p1; ?>"/>
 <input type='hidden' name='pass2' value="<?php echo $p2; ?>"/>
