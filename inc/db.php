@@ -2,6 +2,6 @@
 $host = "localhost";
 $username = "root";
 $password = "root";
-$db_name = "table6";
-$seed = "ctwbVGa1LD";
+$db_name = "timesheet2";
+$seed = "f31NukUmtA";
 ?>

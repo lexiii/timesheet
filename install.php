@@ -257,7 +257,7 @@ role  INT(11)
         echo "Error creating table: " . mysqli_error($conn);
     }
     $pass = sha1($seed.$p1);
-    $sql = "INSERT INTO users (userName,password,email, role) VALUES ('".$username."','".$pass."','".$email."', '0')";
+    $sql = "INSERT INTO users (userName,password,email, role) VALUES ('".$name."','".$pass."','".$email."', '0')";
 
     if (mysqli_query($conn, $sql)) {
         //    echo "Admin user Created ";
