@@ -61,7 +61,15 @@ body, html {
     user-select: none;
     cursor: default;
 }
-
+#logo{
+    position:relative;
+    top:15px;
+    text-align:right;
+    opacity:0.3;
+}
+#logo:hover{
+    opacity:0.5;
+}
 /*
  * Card component
  */

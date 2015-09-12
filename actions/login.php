@@ -2,7 +2,7 @@
     session_start();
 
 // Details of connection
-include("inc/db.php");
+include("../inc/db.php");
 $tbl_name="users";
 
 // Establish connection
@@ -28,7 +28,7 @@ if(mysql_num_rows($result)==1){
         $_SESSION['userId']=$row["id"];
     }
     $_SESSION['username']=$myusername;
-    header("location:landing.php");
+    header("location:../landing.php");
 }
 else {
     echo "Wrong Username or Password. Try again.";

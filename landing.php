@@ -5,10 +5,10 @@ session_start();
 if(!isset($_SESSION['username'])){
     header("location:index.php");
 }
-include("header.php");
-include("./memberHeader.php");
+include("inc/template/header.php");
+include("inc/template/memberHeader.php");
 include_once("inc/db.php");
-include_once("./functions.php");
+include_once("inc/functions.php");
 $tbl_name="timesheet";
 date_default_timezone_set('Australia/Sydney');
 ?>
@@ -70,12 +70,12 @@ To. . .
     }
     echo "<br/>";
     echo $clockedIn;
-    echo "<a href='clock.php' class='btn btn-danger btn-lg'>Clock ".($inSession?"Out":"In")."</a>";
+    echo "<a href='actions/clock.php' class='btn btn-danger btn-lg'>Clock ".($inSession?"Out":"In")."</a>";
 } else {
     echo '<div class="panel-body">';
     echo "<div class='text-center'>";
     echo "No records for ".$_SESSION['username'];
-    echo "</br><a href='clock.php' class='btn btn-danger btn-lg'>Clock In</a>";
+    echo "</br><a href='actions/clock.php' class='btn btn-danger btn-lg'>Clock In</a>";
     echo "</div>";
     echo "</div>";
 }
@@ -86,6 +86,6 @@ To. . .
 <a href='timesheet.php' class='btn btn-default btn-lg'>Full Timesheet</a>
 </div>
 </div>
-<?php include "footer.php"; ?>
+<?php include "inc/template/footer.php"; ?>
     </body>
 </html>

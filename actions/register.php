@@ -4,10 +4,11 @@ session_start();
 if(isset($_SESSION['username'])){
     header("location:landing.php");
 }
-include("header.php");
+include("../inc/template/header.php");
 $error = isset($_GET['er'])?$_GET['er']:"";
 ?>
 <body>
+<div class='container'>
 <h3> Register </h3>
 <form action="register-validate.php" method="POST" >
 <label for='userName'>Username</label>
@@ -29,6 +30,7 @@ $error = isset($_GET['er'])?$_GET['er']:"";
 <button type='submit'>Register</button>
 <br/>
 <br/>
-[<a href='index.php'>Login</a>]
+[<a href='../index.php'>Login</a>]
 </form>
+</div>
 </body>

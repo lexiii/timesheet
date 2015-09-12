@@ -2,10 +2,10 @@
 $access_token = 1;
 session_start();
 if(!isset($_SESSION['username'])){
-    header("location:index.php");
+    header("location:../index.php");
 }
 $tbl_name="timesheet";
-include_once("inc/db.php");
+include_once("../inc/db.php");
 $userId = $_SESSION['userId'];
 // Establish connection
 mysql_connect("$host", "$username", "$password")or die("cannot connect");
@@ -36,5 +36,5 @@ $sql = "UPDATE $tbl_name SET endTime=now() WHERE id=$latest";
         die("Cannot clock in/out!<br/>".$sql);
     }
 }
-    header("location:landing.php");
+    header("location:../landing.php");
 ?>

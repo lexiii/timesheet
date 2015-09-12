@@ -6,9 +6,9 @@ $access_token = 1;
 if(!isset($_SESSION['username'])){
     die('INVALID PERMISSIONS');
 }
-include("header.php");
-include("./memberHeader.php");
-date_default_timezone_set('Australia/Sydney');
+include("inc/template/header.php");
+include("inc/template/memberHeader.php");
+date_default_timezone_set('Australia/Sydney'); // MOVE THIS TO SETTINGS
 
 $userId = $_SESSION['userId'];
 
@@ -25,7 +25,6 @@ $tbl_name="timesheet";
 mysql_connect("$host", "$username", "$password")or die("cannot connect");
 mysql_select_db("$db_name")or die("cannot select DB");
 $sql="SELECT * FROM $tbl_name WHERE userId='$userId' ORDER BY startTime";
-//$sql="SELECT DATE_FORMAT(startTime, '%M %d, %Y) AS startTime, DATE_FORMAT(endTime, '%M %d, %Y) AS endTime FROM $tbl_name WHERE userId='$userId' ORDER BY startTime";
 $result = mysql_query($sql);
 if (mysql_num_rows($result) > 0) {
     echo "<table class='table table-hover'>";
@@ -41,7 +40,6 @@ if (mysql_num_rows($result) > 0) {
 <?php
     while($row = mysql_fetch_assoc($result)) {
         $startTime = strtotime($row['startTime']);
-        //$startTime = date("m/d/Y H:i",$startTime);
         $startTime = date("m/d/Y",$startTime)."<br/>".date("H:i",$startTime);
         if(isset($row['endTime'])){
             $endTime = strtotime($row['endTime']);
@@ -75,7 +73,7 @@ if (mysql_num_rows($result) > 0) {
 <a href='landing.php' class='btn btn-default btn-lg'>Back</a>
 <div>
 <br>
-<?php include "footer.php"; ?>
+<?php include "inc/template/footer.php"; ?>
 
     </body>
 </html>

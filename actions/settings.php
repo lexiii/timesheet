@@ -2,12 +2,12 @@
 $access_token = 1;
 session_start();
 if(!isset($_SESSION['username'])){
-    header("location:index.php");
+    header("location:../index.php");
 }
-include("header.php");
-include("./memberHeader.php");
+include("../inc/template/header.php");
+include("../inc/template/memberHeader.php");
 ?>
-<body>
+<div class='container'>
     <h2>Settings</h2>
     <h4>Change Password</h4>
     <form>
@@ -20,4 +20,5 @@ include("./memberHeader.php");
 <br/>
 <button type="submit">Change Password</button>
     </form>
+</div>
 </body>

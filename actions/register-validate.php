@@ -2,7 +2,7 @@
 $BYPASS_CHECKS = false;
 
 // Details of connection
-include("inc/db.php");
+include("../inc/db.php");
 $tbl_name="users";
 
 // Establish connection
