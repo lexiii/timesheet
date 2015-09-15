@@ -13,9 +13,11 @@ if($clocked){
     $endTime        = date("h:i A",$end);
     $endString      = "<p class='pDate'>".$endDate."</p>".
                     "<p class='pTime'>".$endTime."</p>";
+    $relative = "Last active about ".relativeTime($end);
 }else{
     $end            = "Still Clocked In";
     $endString      = "<p class='stillClocked'>".$end."</p>";
+    $relative = "Logged in about ".relativeTime($start);
 }
 ?>
 <div class='container'>
@@ -46,6 +48,7 @@ if($clocked){
                 </div>
             </div>
         </div>
+<h3 class='text-uppercase pull-right'><small> <?php echo $relative; ?> </small></h3>
     </div>
 </div>
 <a href='<?php echo url_rewrite('timesheet','clock'); ?>' class='btn btn-danger btn-lg'>Clock <?php echo $inOut; ?></a>

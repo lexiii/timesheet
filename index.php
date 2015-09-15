@@ -9,7 +9,7 @@ header( 'Location: /setup/index.php' ) ;
 }
 require_once('connection.php');
 require_once('views/styles.php');
-require_once('functions/urlWriter.php');
+require_once('functions/functions.php');
 
 $logged = isset($_SESSION['username']);
 if (isset($_GET['controller']) && isset($_GET['action'])) {
