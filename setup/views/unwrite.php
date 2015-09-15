@@ -1,9 +1,9 @@
 <?php
 $manual =
-        '$host = "'.$db['DBh']."\";\n".
-        '$username = "'.$db['DBu']."\";\n".
-        '$password = "'.$db['DBp']."\";\n".
-        '$db_name = "'.$db['DBdb']."\";\n".
+        '$SQLHost = "'.$db['DBh']."\";\n".
+        '$SQLUsername = "'.$db['DBu']."\";\n".
+        '$SQLPassword = "'.$db['DBp']."\";\n".
+        '$SQLDB = "'.$db['DBdb']."\";\n".
         "\n".
         'DEFINE("SQLHost",$SQLHost)'.";\n".
         'DEFINE("SQLUsername",$SQLUsername)'.";\n".
