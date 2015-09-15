@@ -6,7 +6,7 @@
 </div>
 <div class='version'>
 <a href="https://github.com/lexiii/timesheet" class='git' target="_blank">
-V1.1<?php //echo VERSION; ?>
+V<?php echo VERSION; ?>
 </a>
 </div>
         <div class="card card-container">
