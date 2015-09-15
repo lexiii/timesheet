@@ -5,4 +5,7 @@ DEFINE("REWRITEMODE",1);
 
 // CHANGE THIS TO YOUR TIMEZONE
 date_default_timezone_set('Australia/Sydney');
+
+// DO NOT CHANGE BELOW THIS LINE
+DEFINE("VERSION","0.03a");
 ?>
