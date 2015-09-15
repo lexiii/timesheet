@@ -1,0 +1,7 @@
+<?php
+// CHANGE THIS TO 1 IF YOU DO NOT HAVE MOD_REWRITE ENABLED ON YOUR SERVER
+DEFINE("REWRITEMODE",1);
+
+// CHANGE THIS TO YOUR TIMEZONE
+date_default_timezone_set('Australia/Sydney');
+?>

@@ -41,7 +41,5 @@ if($styl){
 <?php require_once('routes.php'); ?>
 
 
-<hr>
-footer
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>

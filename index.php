@@ -1,8 +1,7 @@
 <?php
-// CHANGE THIS TO 1 IF YOU DO NOT HAVE MOD_REWRITE ENABLED ON YOUR SERVER
-DEFINE("REWRITEMODE",0);
 
 session_start();
+require_once('settings.php');
 require_once('config.php');
 if(!isset($SQLHost)){
 header( 'Location: /setup/index.php' ) ;

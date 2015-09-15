@@ -1,6 +1,4 @@
 <?php
-// MOVE THIS!
-date_default_timezone_set('Australia/Sydney');
 $res = " ";
 foreach($times as $time){
         $startTime = strtotime($time->startTime);

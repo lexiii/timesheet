@@ -1,18 +1,16 @@
 <?php
-// MOVE THIS!
-date_default_timezone_set('Australia/Sydney');
 $clocked        = isset($latestTime['endTime']);
 $inOut          = $clocked?"in":"out";
 $sessionString  = ($clocked?"":"Current ")."Session";
-$start          = $latestTime['startTime'];
-$startDate      = date("m/d/Y",$startTime);
-$startTime      = date("H:i",$startTime);
+$start          = strtotime($latestTime['startTime']);
+$startDate      = date("d M Y",$start);
+$startTime      = date("h:i A",$start);
 $startString    = "<p class='pDate'>".$startDate."</p>".
                 "<p class='pTime'>".$startTime."</p>";
 if($clocked){
-    $end            = $latestTime['endTime'];
-    $endDate        = date("m/d/Y",$endTime);
-    $endTime        = date("H:i",$endTime);
+    $end            = strtotime($latestTime['endTime']);
+    $endDate        = date("d M Y",$end);
+    $endTime        = date("h:i A",$end);
     $endString      = "<p class='pDate'>".$endDate."</p>".
                     "<p class='pTime'>".$endTime."</p>";
 }else{
