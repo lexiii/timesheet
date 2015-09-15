@@ -1,60 +1,39 @@
 <?php
-session_start();
-include_once('inc/db.php');
-include_once('inc/info.php');
+// CHANGE THIS TO 1 IF YOU DO NOT HAVE MOD_REWRITE ENABLED ON YOUR SERVER
+DEFINE("REWRITEMODE",0);
 
-// CHECK TO SEE IF DB EXISTS. IF NOT, LINK TO INSTALL.PHP
-$link = mysql_connect("$host", "$username", "$password");
-if (!$link) {
-    die('Not connected : ' . mysql_error());
-}
-$db_selected = mysql_select_db("$db_name", $link);
-if (!$db_selected) {
-    include('install.php');
+session_start();
+require_once('config.php');
+if(!isset($SQLHost)){
+header( 'Location: /setup/index.php' ) ;
     die();
 }
-// END CHECK
+require_once('connection.php');
+require_once('views/styles.php');
+require_once('functions/urlWriter.php');
 
-// If logged in, go to landing
-if(isset($_SESSION['username'])){
-    header("location:landing.php");
+$logged = isset($_SESSION['username']);
+if (isset($_GET['controller']) && isset($_GET['action'])) {
+    $controller = $_GET['controller'];
+    $action = $_GET['action']==""?'home':$_GET['action'];
+}else{
+    $controller = 'timesheet';
+    $action     = 'home';
 }
-$title="Login";
-$css = ["login"];
-include("inc/template/header.php");
+
+$layout_page = 'views/layout_logged.php';
+
+if(!$logged){
+    $controller     = 'login';
+    $layout_page    = 'views/layout.php';
+}
+
+if(array_key_exists($controller,$styles)){
+    $styl = $styles[$controller];
+}else{
+    $styl = NULL;
+}
+
+require_once($layout_page);
 ?>
-    <body>
-<div class='outer'>
-<div class='inner'>
-<div class='inner-inner'>
-<div class='title-card card'>
-<span class='w1'>Time</span><span class='w2'>Sheet</span>
-</div>
-<div class='version'>
-V<?php echo VERSION; ?>
-</div>
-        <div class="card card-container">
-            <p id="profile-name" class="profile-name-card"></p>
-        <form class="form-signin" action="actions/login.php" method="POST" >
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" name='name' id="name" class="form-control" placeholder="Username" required autofocus>
-                <input type="password" name='password' id="password" class="form-control" placeholder="Password" required>
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-            </form><!-- /form -->
-            <a href="#" class="forgot-password"> Forgot your password? </a>
-            <a href="actions/register.php" class="forgot-password pull-right"> Register </a>
-            <?php if($logo){ ?>
-<div id='logo'><a href='https://github.com/lexiii/timesheet' target="_blank"><img src='img/github.png' /></a></div>
-<?php } ?>
-        </div><!-- /card-container -->
-    </div><!-- /container -->
-</div>
-</div>
-<?php include "inc/template/footer.php"; ?>
-    </body>
-</html>
+

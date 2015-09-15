@@ -1,0 +1,3 @@
+RewriteEngine On
+   RewriteCond %{REQUEST_URI} !\.(gif|jpg|png|js|css)$
+#   RewriteRule (.+) /setup/index.php?action=$1
